@@ -1,0 +1,23 @@
+# public/admin/config.yml
+backend:
+  name: git-gateway
+  branch: main  # The branch to update
+  repo: github_username/repo_name
+
+local_backend: true # set to true to allow decap cms to save file locally during development
+
+media_folder: "public/uploads"  # Folder to store media
+public_folder: "/uploads"  # Public URL for media
+
+collections:
+  - name: "posts"  # Name of the collection
+    label: "Posts"  # Label for the admin UI
+    folder: "/public/content/posts"  # Folder where posts are stored
+    create: true  # Allow new posts to be created
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # Post slug format
+    fields: # The fields for each document, usually in front matter
+      - { name: "layout", label: "Layout",  widget: "hidden", default: "posts" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Date", widget: "dateformat", date_format: "YYYY-MM-DD", time_format: false },
+      - { name: "thumbnail", label: "Featured Image",  widget: "image" }
+      - { name: "body", label: "Body", widget: "markdown" }
