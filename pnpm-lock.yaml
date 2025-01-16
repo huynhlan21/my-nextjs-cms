@@ -8,6 +8,9 @@ dependencies:
   decap-cms-app:
     specifier: ^3.4.0
     version: 3.4.0(@types/node@20.17.12)(@types/react@19.0.7)(graphql@15.10.1)(react-dom@19.0.0)(react@19.0.0)
+  gray-matter:
+    specifier: ^4.0.3
+    version: 4.0.3
   next:
     specifier: 15.1.4
     version: 15.1.4(react-dom@19.0.0)(react@19.0.0)

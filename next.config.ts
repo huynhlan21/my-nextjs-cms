@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",
   webpack: (cfg) => {
     cfg.module.rules.push({
       test: /\.md$/,

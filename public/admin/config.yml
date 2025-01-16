@@ -1,23 +1,31 @@
 # public/admin/config.yml
 backend:
   name: git-gateway
-  branch: main  # The branch to update
-  repo: github_username/repo_name
+  branch: main # The branch to update
+  repo: huynhlan.fe/my-nextjs-cms
 
-local_backend: true # set to true to allow decap cms to save file locally during development
+local_backend: true
+# set to true to allow decap cms to save file locally during development
 
-media_folder: "public/uploads"  # Folder to store media
-public_folder: "/uploads"  # Public URL for media
+media_folder: "public/uploads" # Folder to store media
+public_folder: "/uploads" # Public URL for media
 
+# Here we define content structure
 collections:
-  - name: "posts"  # Name of the collection
-    label: "Posts"  # Label for the admin UI
-    folder: "/public/content/posts"  # Folder where posts are stored
-    create: true  # Allow new posts to be created
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"  # Post slug format
-    fields: # The fields for each document, usually in front matter
-      - { name: "layout", label: "Layout",  widget: "hidden", default: "posts" }
-      - { name: "title", label: "Title", widget: "string" }
-      - { name: "date", label: "Date", widget: "dateformat", date_format: "YYYY-MM-DD", time_format: false },
-      - { name: "thumbnail", label: "Featured Image",  widget: "image" }
-      - { name: "body", label: "Body", widget: "markdown" }
+  - label: "Home page"
+    name: "homepage"
+    files:
+      - label: "Hero"
+        name: "hero"
+        file: "app/content/hero.md" # Path to the markdown file
+        create: true
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - {
+              label: "Background Image",
+              name: "backgroundImage",
+              widget: "image",
+              required: false,
+            }
+          - { label: "Button Text", name: "buttonText", widget: "string" }
